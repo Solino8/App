@@ -1,36 +1,37 @@
-package com.example.calculadoras;
+package com.example.suacalculadora;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Declaração dos botões
+    // Definir os botões da tela principal
     private Button btnIMC, btnPesoIdeal, btnAlturaIdeal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Configuração para tela cheia
-        getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);  // Carrega a tela principal
+        // Definir a tela em modo tela cheia
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
+        // Carregar a tela principal
         CarregarTelaPrincipal();
     }
 
     // Método para carregar a tela principal
     private void CarregarTelaPrincipal() {
+        // Carregar o arquivo XML correspondente à tela principal
         setContentView(R.layout.activity_main);
 
-        // Mapeia os botões da tela principal
-        btnIMC = findViewById(R.id.btnCalculadoraIMC);
-        btnPesoIdeal = findViewById(R.id.btnCalculadoraPesoIdeal);
-        btnAlturaIdeal = findViewById(R.id.btnCalculadoraAlturaIdeal);
+        // Mapear os elementos de tela do XML
+        btnIMC = findViewById(R.id.btnIMC);
+        btnPesoIdeal = findViewById(R.id.btnPesoIdeal);
+        btnAlturaIdeal = findViewById(R.id.btnAlturaIdeal);
 
-        // Definição dos listeners dos botões
+        // Definir listeners para os botões
         btnIMC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,57 +54,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Método para carregar a calculadora de IMC
+    // Métodos de navegação para as outras telas
     private void CarregarCalculadoraIMC() {
         setContentView(R.layout.activity_calculadora_imc);
-
-        // Mapeia os elementos da tela de IMC
-        Button btnVoltar = findViewById(R.id.btnVoltar);
-
-        // Define os listeners dos botões
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CarregarTelaPrincipal();
-            }
-        });
-
-        // Código adicional para cálculo de IMC pode ser inserido aqui
+        // Aqui você também pode mapear e definir os listeners específicos para esta tela
     }
 
-    // Método para carregar a calculadora de Peso Ideal
     private void CarregarCalculadoraPesoIdeal() {
         setContentView(R.layout.activity_calculadora_peso_ideal);
-
-        // Mapeia os elementos da tela de Peso Ideal
-        Button btnVoltar = findViewById(R.id.btnVoltar);
-
-        // Define os listeners dos botões
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CarregarTelaPrincipal();
-            }
-        });
-
-        // Código adicional para cálculo de Peso Ideal pode ser inserido aqui
+        // Aqui você também pode mapear e definir os listeners específicos para esta tela
     }
 
-    // Método para carregar a calculadora de Altura Ideal
     private void CarregarCalculadoraAlturaIdeal() {
         setContentView(R.layout.activity_calculadora_altura_ideal);
-
-        // Mapeia os elementos da tela de Altura Ideal
-        Button btnVoltar = findViewById(R.id.btnVoltar);
-
-        // Define os listeners dos botões
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CarregarTelaPrincipal();
-            }
-        });
-
-        // Código adicional para cálculo de Altura Ideal pode ser inserido aqui
+        // Aqui você também pode mapear e definir os listeners específicos para esta tela
     }
 }
